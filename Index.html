@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forsaken Hunter</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-image: url("adventureWall.png");
+        background-size: cover;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-family: "Cinzel", sans-serif;
+        padding: 50px;
+      }
+
+      .menu-btn {
+        padding: 15px 30px;
+        font-size: 20px;
+        background-color: #6f667d; /* สีม่วงเข้มแบบราชวงศ์ */
+        border: 3px solid #8f8d94; /* กรอบสีทองหรือม่วงอ่อน */
+        color: white;
+        font-family: "Cinzel", serif; /* ฟอนต์ที่ให้ความรู้สึกของยุคกลาง */
+        cursor: pointer;
+        margin: 10px;
+        border-radius: 0px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* เงาเล็กน้อยเพื่อให้ดูน่าสนใจ */
+        text-transform: uppercase; /* ข้อความจะถูกแปลงให้เป็นตัวพิมพ์ใหญ่ทั้งหมด */
+        letter-spacing: 2px; /* การเพิ่มระยะห่างระหว่างตัวอักษร */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .menu-btn:hover {
+        background-color: #a9a5ad; /* เปลี่ยนสีเมื่อ hover เพื่อให้ดูโดดเด่นขึ้น */
+        transform: scale(1.1); /* ทำให้ปุ่มขยายขนาดเล็กน้อยเมื่อ hover */
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover เพื่อให้ดูมีมิติ */
+      }
+
+      .menu-btn:active {
+        transform: scale(1.05); /* เมื่อคลิกจะมีการย่อขนาดเล็กน้อย */
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="font-size: 50px">Forsaken Hunter</h1>
+    <h1 id="hiestScore">Highest Score : 0</h1>
+    <button class="menu-btn" onclick="startGame()">Start Game</button>
+    <script>
+      function loadHighestScore() {
+        let highestScore = localStorage.getItem("highestScore");
+        if (highestScore === null) {
+          highestScore = 0; // Set default if no score is found
+        }
+        document.getElementById("hiestScore").innerText =
+          "Highest Score: " + highestScore;
+      }
+
+      // Call this function to start the game
+      function startGame() {
+        window.location.href = "Maingame.html"; // Redirect to Maingame.html
+      }
+
+      // Load the highest score when the page loads
+      window.onload = loadHighestScore;
+
+      const backgoundSong = new Audio("backgoundSong.mp3");
+      let hasStartedMusic = false; // Variable to check if the music has started
+
+      // Function to start the music when the left mouse button is clicked
+      document.addEventListener("click", function (event) {
+        if (event.button === 0) {
+          // 0 refers to the left mouse button
+          if (!hasStartedMusic) {
+            backgoundSong.play(); // Start playing the background music
+            backgoundSong.loop = true; // Loop the music
+            hasStartedMusic = true; // Mark the music as started
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

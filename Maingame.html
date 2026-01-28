@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Forsaken Hunter</title>
+    <script type="text/javascript" src="simpleGame.js"></script>
+    <script type="text/javascript" src="MaingameJS.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      #game-container {
+        position: relative;
+      }
+      #ui-container {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 10;
+      }
+      #player-health {
+        width: 600px;
+        height: 40px;
+        background-color: #ddd;
+        margin-bottom: 5px;
+        margin-left: 10px;
+        margin-top: 20px;
+      }
+      #player-health-bar {
+        width: 100%;
+        height: 100%;
+        background-color: #0f0;
+      }
+      #score {
+        font-size: 20px;
+        color: white;
+      }
+
+      #back-btn {
+        position: absolute;
+        left: 10px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #444;
+        color: white;
+        font-family: "Cinzel", sans-serif;
+        border: none;
+        border-radius: 0px;
+        margin-top: 20px;
+        width: 150px;
+      }
+
+      #restart-btn {
+        position: fixed;
+        top: 0%;
+        right: 10px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #444;
+        color: white;
+        font-family: "Cinzel", sans-serif;
+        border: none;
+        border-radius: 0px;
+        margin-top: 40px;
+        width: 150px;
+      }
+
+      #restart-btn:hover,
+      #back-btn:hover {
+        background-color: #555;
+      }
+    </style>
+  </head>
+  <body onload="init()">
+    <div id="game-container">
+      <div id="ui-container">
+        <div id="player-health">
+          <div id="player-health-bar"></div>
+        </div>
+        <div
+          id="timer"
+          style="
+            margin-top: 4%;
+            color: rgb(255, 255, 255);
+            font-size: 50px;
+            margin-left: 10px;
+          "
+        >
+          Time Left: 300
+        </div>
+        <div
+          id="score"
+          style="
+            margin-top: 4%;
+            color: rgb(255, 255, 255);
+            font-size: 50px;
+            margin-left: 10px;
+          "
+        >
+          Score: 0
+        </div>
+        <!-- New buttons -->
+        <button id="back-btn" onclick="goBack()">Back to Menu</button>
+      </div>
+    </div>
+    <audio id="backgroundMusic" loop>
+      <source src="music/backgoundSong.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+  </body>
+</html>
